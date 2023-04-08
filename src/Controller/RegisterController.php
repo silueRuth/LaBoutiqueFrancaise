@@ -20,7 +20,6 @@ class RegisterController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-
     #[Route('/inscription', name: 'app_register')]
     public function index(Request $request, UserPasswordHasherInterface $encoder): Response
     {

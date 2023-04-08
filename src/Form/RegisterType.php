@@ -24,7 +24,10 @@ class RegisterType extends AbstractType
                 TextType::class,
                 [
                     'label' => 'Votre Prénom',
-                    'constraints' => new Length(2, 30),
+                    'constraints' => new Length([
+                        'min' => 2,
+                        'max' => 30
+                    ]),
                     'attr' => ['placeholder' => "merci de saisir votre prénom "]
                 ]
             )
@@ -33,7 +36,10 @@ class RegisterType extends AbstractType
                 TextType::class,
                 [
                     'label' => 'Votre nom',
-                    'constraints' => new Length(2, 30),
+                    'constraints' => new Length([
+                        'min' => 2,
+                        'max' => 30
+                    ]),
                     'attr' => ['placeholder' => "Merci de saisir votre nom"]
                 ]
             )
@@ -53,8 +59,14 @@ class RegisterType extends AbstractType
                     'invalid_message' => 'Le mot de passe et la confirmation doivent être identique',
                     'label' => 'Votre mot de passe',
                     'required' => true,
-                    'first_options' => ['label' => 'Mot de passe'],
-                    'second_options' => ['label' => 'Conformer votre mot de passe']
+                    'first_options' => [
+                        'label' => 'Mot de passe',
+                        'attr' => ['placeholder' => "Merci de saisir votre mot de passe"]
+                    ],
+                    'second_options' => [
+                        'label' => 'Conformer votre mot de passe',
+                        'attr' => ['placeholder' => "Merci de comfirmer votre mail"]
+                    ]
                 ]
             )
             ->add(
